@@ -1,0 +1,116 @@
+package Extractdata;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Paper_Extract 
+{
+	public static void main(String[] args) 
+	{	 
+		BufferedReader in = null;		
+		BufferedWriter out = null;
+		int i, p;
+		long a;
+		try 
+		{	 
+			String sCurrentLine;	 
+			in = new BufferedReader(new FileReader("E:/AMiner/AMiner-Paper.txt"));			
+			out = new BufferedWriter(new FileWriter("E:/AMiner/nAMiner-Paper.txt"));
+	        for( a=0; a<2092356; a++)
+	        {	        	
+	        	do
+				{
+					sCurrentLine = in.readLine();
+					p = 0;						
+					p=sCurrentLine.length();
+					if(p!=0)
+					{
+						for(i=0;i<p;i++)
+						{
+						if(sCurrentLine.charAt(i)==' ')
+							{
+							//System.out.println("break=="+i);	
+							break;
+							}
+						}
+						//System.out.println("*"+sCurrentLine.charAt(1)+"*");					
+						if(sCurrentLine.charAt(1) == 'i')
+						{	
+							//System.out.print(sCurrentLine.substring(i,p)+'|');
+							out.write(sCurrentLine.substring(i,p)+'\t');
+						}
+						else if(sCurrentLine.charAt(1) == '*')
+						{
+							//System.out.print(sCurrentLine.substring(i,p)+'|');
+							out.write(sCurrentLine.substring(i,p)+'\t');
+						}	
+						else if(sCurrentLine.charAt(1) == '@')
+						{
+							//System.out.print(sCurrentLine.substring(i,p)+'|');
+							out.write(sCurrentLine.substring(i,p)+'\t');
+						}	
+						else if(sCurrentLine.charAt(1) == 'o')
+						{
+							//System.out.print(sCurrentLine.substring(i,p)+'|');
+							out.write(sCurrentLine.substring(i,p)+'\t');
+						}	
+						else if(sCurrentLine.charAt(1) == 't')
+						{
+							//System.out.print(sCurrentLine.substring(i,p)+'|');
+							out.write(sCurrentLine.substring(i,p)+'\t');
+						}	
+						else if(sCurrentLine.charAt(1) == 'c')
+						{
+							//System.out.print(sCurrentLine.substring(i,p));
+							out.write(sCurrentLine.substring(i,p));
+						}
+						else if (sCurrentLine.charAt(1) == '%')
+						{
+							//sCurrentLine = in.readLine();
+						}
+						else if( sCurrentLine.charAt(1) == '!')
+						{							
+							//sCurrentLine = in.readLine();
+						}
+						else
+						{
+							
+						}
+						//out.write("\n");
+						//p=0;
+					}
+					else
+					{
+						//System.out.println();
+						//sCurrentLine = in.readLine();
+						//System.out.println("break"+a);
+						out.write("\n");
+						
+						break;
+					}
+				}while(true);
+	        	
+	        }       
+		} 
+		catch (IOException e) 
+			{
+				e.printStackTrace();
+			} 
+			finally 
+			{
+				try 
+				{
+					if (in != null)in.close();
+					if (out != null)out.close();
+				} 
+				catch (IOException ex) 
+				{
+					ex.printStackTrace();
+				}
+			}
+	 
+		}
+}
